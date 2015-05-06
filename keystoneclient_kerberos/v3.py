@@ -22,8 +22,8 @@ class KerberosMethod(v3.AuthMethod):
         # NOTE(jamielennox): request_kwargs is passed as a kwarg however it is
         # required and always present when called from keystoneclient.
         request_kwargs['requests_auth'] = requests_kerberos.HTTPKerberosAuth(
-            mutual_authentication=requests_kerberos.OPTIONAL)
-        return 'kerberos', {}
+            mutual_authentication=requests_kerberos.DISABLED)
+        return 'external', {}
 
 
 class Kerberos(v3.AuthConstructor):

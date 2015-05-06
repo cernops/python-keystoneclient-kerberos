@@ -57,8 +57,8 @@ class TestKerberosAuth(base.TestCase):
         s = session.Session(a)
         token = a.get_token(s)
 
-        req = {'auth': {'identity': {'methods': ['kerberos'],
-                                     'kerberos': {}}}}
+        req = {'auth': {'identity': {'methods': ['external'],
+                                     'external': {}}}}
 
         self.assertEqual(req, json.loads(self.requests.last_request.body))
         self.assertEqual(header,
